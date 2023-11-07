@@ -1,63 +1,71 @@
 "use strict";
 
-let title = "JavaScript"; // строка с названием проекта
-let screens = "Простые, Сложные, Интерактивные"; // строка с названиями типов экранов через запятую
-let screenPrice = 1000; // любое число
-let rollback = 20; // любое число от 1 до 100
-let fullPrice = 5000; // любое число (сколько хотите заработать)
-let adaptive = true; // булевое значение
-
-// Вывести в консоль тип данных значений переменных title, fullPrice, adaptive
-console.log(typeof title);
-console.log(typeof fullPrice);
-console.log(typeof adaptive);
-// Вывести в консоль длину строки из переменной screens
-console.log(screens.length);
-// Вывести в консоль “Стоимость верстки экранов (screenPrice) рублей
-console.log("Стоимость верстки экранов " + screenPrice + " рублей");
-// Привести строку screens к нижнему регистру и разбить строку на массив, вывести массив в консоль
-console.log(screens.toLowerCase().split(", "));
-// Вывести в консоль Процент отката посреднику за работу (fullPrice * (rollback/100))
-console.log(fullPrice * (rollback / 100));
-
-title = prompt("Как называется ваш проект?");
-screens = prompt("Какие типы экранов нужно разработать?");
-screenPrice = parseInt(prompt("Сколько будет стоить данная работа?"));
-adaptive = confirm("Нужен ли адаптив на сайте?");
+let title = prompt("Как называется ваш проект?");
+let screens = prompt("Какие типы экранов нужно разработать?");
+let screenPrice = +prompt("Сколько будет стоить данная работа?");
+let adaptive = confirm("Нужен ли адаптив на сайте?");
 let service1 = prompt("Какой дополнительный тип услуги нужен?");
-let servicePrice1 = parseInt(prompt("Сколько это будет стоить?"));
+let servicePrice1 = +prompt("Сколько это будет стоить?");
 let service2 = prompt("Какой дополнительный тип услуги нужен?");
-let servicePrice2 = parseInt(prompt("Сколько это будет стоить?"));
-// Вычислить итоговую стоимость (screenPrice + servicePrice1 + servicePrice2)
-fullPrice = screenPrice + servicePrice1 + servicePrice2;
-// Объявить переменную servicePercentPrice и занести в нее итоговую стоимость (servicePercentPrice = fullPrice - Откат посреднику)
+let servicePrice2 = +prompt("Сколько это будет стоить?");
+let rollback = 10;
+// Вычислим итоговую стоимость
+let fullPrice = screenPrice + servicePrice1 + servicePrice2;
+// Итоговая стоимость - откат посреднику
 let servicePercentPrice = Math.ceil(fullPrice - fullPrice * (rollback / 100));
 
-console.log("Название проекта: ", title);
-console.log("Стоимость проекта: ", fullPrice);
-console.log("Адаптив: ", adaptive);
-console.log("Типвы экранов: ", screens);
-console.log("Стоимость верстки экранов: ", screenPrice, " рублей");
-console.log("Доп.услуги: ", servicePrice1, ", ", servicePrice2);
-console.log("Процент отката посреднику: ", fullPrice * (rollback / 100));
-console.log("Итоговый доход: ", servicePercentPrice);
+const showTipeOf = function (variable) {
+  console.log(variable, typeof variable);
+};
 
-// Написать конструкцию условий (расчеты приведены в рублях) (вывести в консоль)
-// - Если fullPrice больше 30000, то “Даем скидку в 10%”
-// - Если fullPrice больше 15000 и меньше 30000, то сообщение “Даем скидку в 5%”
-// - Если fullPrice меньше 15000 и больше 0 то в консоль вывести сообщение “Скидка не предусмотрена”
-// - Если отрицательное значение то вывести “Что то пошло не так”
-// - Учесть варианты 0, 15000 и 30000(к какому уровню не важно)
-switch (true) {
-  case fullPrice > 30000:
-    console.log("Даем скидку в 10%");
-    break;
-  case fullPrice > 15000 && fullPrice <= 30000:
-    console.log("Даем скидку в 5%");
-    break;
-  case fullPrice > 0 && fullPrice <= 15000:
-    console.log("Скидка не предусмотрена");
-    break;
-  default:
-    console.log("Что то пошло не так");
+const getRollbackMessage = function (price) {
+  if (price >= 30000) {
+    return "Даем скидку в 10%";
+  } else if (price >= 15000 && price < 30000) {
+    return "Даем скидку в 5%";
+  } else if (price >= 0 && price < 15000) {
+    return "Скидка не предусмотрена";
+  } else {
+    return "Что то пошло не так";
+  }
+};
+
+// 1) Объявить функцию getAllServicePrices
+const getAllServicePrices = function (price1, price2) {
+  return price1 + price2;
+};
+let allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+
+// 2) Объявить функцию getFullPrice
+function getFullPrice(price1, price2) {
+  return price1 + price2;
 }
+fullPrice = getFullPrice(screenPrice, allServicePrices);
+
+// 3) Объявить функцию getTitle
+const getTitle = function (title) {
+  let str = title.trim().toLowerCase();
+  str = str[0].toUpperCase() + str.slice(1);
+  return str;
+};
+title = getTitle(title);
+
+// 4) Объявить функцию getServicePercentPrices
+const getServicePercentPrices = function (price1, price2) {
+  return price1 - price2;
+};
+servicePercentPrice = getServicePercentPrices(fullPrice, fullPrice * (rollback / 100));
+
+// 5) Почистить консоль логи и добавить недостающие, должны остаться:
+// - вызовы функции showTypeOf
+// - вывод строки с типами экранов для разработки screens
+// - сообщение о скидке пользователю (вызовы функции getRollbackMessage)
+// - стоимость за вычетом процента отката посреднику (вызовы функции getServicePercentPrices)
+
+showTipeOf(title);
+showTipeOf(screenPrice);
+showTipeOf(adaptive);
+
+console.log("Типы экранов: ", screens);
+console.log("Скидка пользователю:", getRollbackMessage(fullPrice));
+console.log("Стоимость за вычетом процента отката посреднику: ", servicePercentPrice);
