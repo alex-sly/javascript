@@ -1,21 +1,65 @@
 "use strict";
 
-let title = prompt("Как называется ваш проект?");
-let screens = prompt("Какие типы экранов нужно разработать?");
-let screenPrice = +prompt("Сколько будет стоить данная работа?");
-let adaptive = confirm("Нужен ли адаптив на сайте?");
-let service1 = prompt("Какой дополнительный тип услуги нужен?");
-let servicePrice1 = +prompt("Сколько это будет стоить?");
-let service2 = prompt("Какой дополнительный тип услуги нужен?");
-let servicePrice2 = +prompt("Сколько это будет стоить?");
+let title;
+let screens;
+let screenPrice;
+let adaptive;
 let rollback = 10;
-// Вычислим итоговую стоимость
-let fullPrice = screenPrice + servicePrice1 + servicePrice2;
-// Итоговая стоимость - откат посреднику
-let servicePercentPrice = Math.ceil(fullPrice - fullPrice * (rollback / 100));
+let allServicePrices;
+let fullPrice;
+let servicePercentPrice;
+let service1;
+let service2;
+
+const isNumber = function (num) {
+  return !isNaN(parseFloat(num)) && isFinite(num);
+};
+
+const asking = function () {
+  title = prompt("Как называется ваш проект?", "Калькулятор верстки");
+  screens = prompt("Какие типы экранов нужно разработать?", "Простые, Сложные, Интерактивные");
+
+  do {
+    screenPrice = prompt("Сколько будет стоить данная работа?");
+  } while (!isNumber(screenPrice));
+  screenPrice = +screenPrice;
+
+  adaptive = confirm("Нужен ли адаптив на сайте?");
+};
+
+const getAllServicePrices = function () {
+  let sum = 0;
+  let servicePrice;
+  for (let i = 0; i < 2; i++) {
+    if (i === 0) {
+      service1 = prompt("Какой дополнительный тип услуги нужен?", "Метрика");
+    } else {
+      service2 = prompt("Какой дополнительный тип услуги нужен?", "Отправка форм");
+    }
+
+    do {
+      servicePrice = prompt("Сколько это будет стоить?");
+    } while (!isNumber(servicePrice));
+    sum += +servicePrice;
+  }
+  return sum;
+};
 
 const showTipeOf = function (variable) {
   console.log(variable, typeof variable);
+};
+
+function getFullPrice() {
+  return screenPrice + allServicePrices;
+}
+
+// Итоговая стоимость - откат посреднику
+const getServicePercentPrices = function () {
+  return fullPrice - fullPrice * (rollback / 100);
+};
+
+const getTitle = function () {
+  return title.trim()[0].toUpperCase() + title.trim().substr(1).toLowerCase();
 };
 
 const getRollbackMessage = function (price) {
@@ -30,42 +74,23 @@ const getRollbackMessage = function (price) {
   }
 };
 
-// 1) Объявить функцию getAllServicePrices
-const getAllServicePrices = function (price1, price2) {
-  return price1 + price2;
-};
-let allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
-
-// 2) Объявить функцию getFullPrice
-function getFullPrice(price1, price2) {
-  return price1 + price2;
-}
-fullPrice = getFullPrice(screenPrice, allServicePrices);
-
-// 3) Объявить функцию getTitle
-const getTitle = function (title) {
-  let str = title.trim().toLowerCase();
-  str = str[0].toUpperCase() + str.slice(1);
-  return str;
-};
-title = getTitle(title);
-
-// 4) Объявить функцию getServicePercentPrices
-const getServicePercentPrices = function (price1, price2) {
-  return price1 - price2;
-};
-servicePercentPrice = getServicePercentPrices(fullPrice, fullPrice * (rollback / 100));
-
-// 5) Почистить консоль логи и добавить недостающие, должны остаться:
-// - вызовы функции showTypeOf
-// - вывод строки с типами экранов для разработки screens
-// - сообщение о скидке пользователю (вызовы функции getRollbackMessage)
-// - стоимость за вычетом процента отката посреднику (вызовы функции getServicePercentPrices)
+asking();
+allServicePrices = getAllServicePrices();
+fullPrice = getFullPrice();
+servicePercentPrice = getServicePercentPrices();
+title = getTitle();
 
 showTipeOf(title);
 showTipeOf(screenPrice);
 showTipeOf(adaptive);
 
-console.log("Типы экранов: ", screens);
-console.log("Скидка пользователю:", getRollbackMessage(fullPrice));
-console.log("Стоимость за вычетом процента отката посреднику: ", servicePercentPrice);
+console.log("allServicePrices: ", allServicePrices);
+
+console.log(getRollbackMessage(fullPrice));
+// console.log(typeof title);
+// console.log(typeof screenPrice);
+// console.log(typeof adaptive);
+// console.log(screens.length);
+console.log("Стоимость-откат посреднику: ", servicePercentPrice);
+console.log("Стоимость верстки экранов:  ", screenPrice);
+console.log("Стоимость разработки сайта: ", fullPrice);
