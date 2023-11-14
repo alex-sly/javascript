@@ -6,8 +6,8 @@ const btnReset = document.getElementsByClassName("handler_btn").reset;
 const btnScreen = document.querySelector(".screen-btn");
 const itemsPercent = document.querySelectorAll(".other-items.percent");
 const itemsNumber = document.querySelectorAll(".other-items.number");
-const inputRange = document.querySelector(".rollback").querySelector('[type = "range"]');
-const spanRangeValue = document.querySelector(".rollback").querySelector(".range-value");
+const inputRange = document.querySelector(".rollback input[type = 'range']");
+const spanRange = document.querySelector(".rollback span[class ='range-value']");
 const totalInput = Array.from(document.getElementsByClassName("total-input"));
 let screens = document.querySelectorAll(".screen");
 
@@ -18,7 +18,7 @@ console.log("btnScreen: ", btnScreen);
 console.log("itemsPercent: ", itemsPercent);
 console.log("itemsNumber: ", itemsNumber);
 console.log("inputRange: ", inputRange);
-console.log("spanRangeValue: ", spanRangeValue);
+console.log("spanRange: ", spanRange);
 console.log("totalInput: ", totalInput);
 console.log("screens: ", screens);
 
