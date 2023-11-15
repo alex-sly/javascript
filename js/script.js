@@ -1,26 +1,56 @@
 "use strict";
 
-const title = document.getElementsByTagName("h1")[0];
-const btnStart = document.getElementsByClassName("handler_btn").start;
-const btnReset = document.getElementsByClassName("handler_btn").reset;
-const btnScreen = document.querySelector(".screen-btn");
-const itemsPercent = document.querySelectorAll(".other-items.percent");
-const itemsNumber = document.querySelectorAll(".other-items.number");
-const inputRange = document.querySelector(".rollback input[type = 'range']");
-const spanRange = document.querySelector(".rollback span[class ='range-value']");
-const totalInput = Array.from(document.getElementsByClassName("total-input"));
-let screens = document.querySelectorAll(".screen");
+const adv = document.querySelector(".adv");
+const body = document.getElementsByTagName("body");
+const books = document.querySelectorAll(".book");
+const book3 = books[4].querySelector("a");
+const book2 = books[0].querySelectorAll("li");
+const book5 = books[5].querySelectorAll("li");
+const book6 = books[2].querySelectorAll("li");
+const chapter8 = document.createElement("li");
 
-console.log("title: ", title);
-console.log("btnStart: ", btnStart);
-console.log("btnReset: ", btnReset);
-console.log("btnScreen: ", btnScreen);
-console.log("itemsPercent: ", itemsPercent);
-console.log("itemsNumber: ", itemsNumber);
-console.log("inputRange: ", inputRange);
-console.log("spanRange: ", spanRange);
-console.log("totalInput: ", totalInput);
-console.log("screens: ", screens);
+books[0].before(books[1]);
+books[3].before(books[4]);
+books[5].after(books[2]);
+
+body[0].style.backgroundImage = "url('./image/you-dont-know-js.jpg')";
+
+book3.textContent = "Книга 3. this и Прототипы Объектов";
+
+adv.remove();
+
+book2[3].after(book2[6]);
+book2[6].after(book2[8]);
+book2[9].after(book2[2]);
+
+book5[1].after(book5[9]);
+book5[4].after(book5[2]);
+book5[7].after(book5[5]);
+
+chapter8.textContent = "Глава 8: За пределами ES6";
+book6[8].after(chapter8);
+
+// const title = document.getElementsByTagName("h1")[0];
+// const btnStart = document.getElementsByClassName("handler_btn").start;
+// const btnReset = document.getElementsByClassName("handler_btn").reset;
+// const btnScreen = document.querySelector(".screen-btn");
+// const itemsPercent = document.querySelectorAll(".other-items.percent");
+// const itemsNumber = document.querySelectorAll(".other-items.number");
+// const inputRange = document.querySelector(".rollback input[type = 'range']");
+// const spanRange = document.querySelector(".rollback span[class ='range-value']");
+// const totalInput = Array.from(document.getElementsByClassName("total-input"));
+// let screens = document.querySelectorAll(".screen");
+
+// console.log("title: ", title);
+// console.log("btnStart: ", btnStart);
+// console.log("btnReset: ", btnReset);
+// console.log("btnScreen: ", btnScreen);
+// console.log("itemsPercent: ", itemsPercent);
+// console.log("itemsNumber: ", itemsNumber);
+// console.log("inputRange: ", inputRange);
+// console.log("spanRange: ", spanRange);
+// console.log("totalInput: ", totalInput);
+// console.log("screens: ", screens);
 
 const appData = {
   title: "",
