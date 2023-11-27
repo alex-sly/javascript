@@ -1,32 +1,39 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: Verdana, sans-serif;
   font-size: 1.2em;
   background-color: #f0ffff;
 }
+
 h1 {
   font-size: 1.5em;
 }
+
 span {
   display: inline-block;
   width: 200px;
 }
+
 .input__value {
   font-size: 1em;
   margin-bottom: 4px;
 }
+
 input[type="checkbox"] {
   height: 20px;
   width: 20px;
   margin-top: 0;
   margin-left: 0;
 }
+
 input[type="date"] {
   font-size: 1.2em;
 }
-button {
+
+#btn {
   font-size: 1em;
   font-weight: bold;
   color: white;
@@ -37,39 +44,49 @@ button {
   padding: 6px 14px;
   opacity: 0.7;
 }
-button:hover {
+
+#btn:hover {
   color: blue;
   background: white;
 }
+
 .title {
   color: blue;
   text-decoration: underline;
 }
+
 .forma {
   display: flex;
   margin-bottom: 10px;
 }
+
 .left {
   margin-right: 20px;
 }
+
 .input__value {
   border: 1px solid grey;
   border-radius: 3px;
 }
+
 table {
   width: 100%;
   border: 1px solid grey;
   border-collapse: collapse;
 }
+
 thead {
   font-weight: bold;
   font-style: italic;
   color: blue;
 }
+
 td {
   border: 1px solid grey;
   padding: 4px;
 }
-td img {
+
+.table__del {
   height: 19px;
+  cursor: pointer;
 }

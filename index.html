@@ -1,87 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src="./js/script.js" defer></script>
-    <title>Lesson17</title>
-  </head>
-  <body>
-    <h1 class="title">Новый работник</h1>
-    <form class="worker-form" action="">
-      <div class="forma">
-        <div class="left">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/script.js" defer></script>
+  <title>Lesson17</title>
+</head>
+
+<body>
+  <h1 class="title">Новый работник</h1>
+  <form class="worker-form" action="">
+    <div class="forma">
+      <div class="left">
+        <div class="worker">
+          <span class="input__text">Фамилия и имя: </span>
+          <input class="input__value" type="text" name="name" value="" required />
+        </div>
+        <div class="worker">
+          <span class="input__text">Возраст: </span>
+          <input class="input__value" type="number" name="age" value="33" />
+        </div>
+        <div class="worker">
+          <span class="input__text">Наличие детей: </span>
+          <input class="input__value" type="checkbox" name="children" />
+        </div>
+        <div class="worker">
+          <span class="input__text">Профессия: </span>
+          <select class="input__value" name="skills" required>
+            <option value="Слесарь" selected="Слесарь">Слесарь</option>
+            <option value="Водитель">Водитель</option>
+          </select>
+        </div>
+      </div>
+      <div class="right">
+        <div class="worker">
           <div class="worker">
-            <span class="input__text">Фамилия и имя: </span>
-            <input class="input__value" type="text" name="name" required value="Alex" />
-          </div>
-          <div class="worker">
-            <span class="input__text">Возраст: </span>
-            <input class="input__value" type="number" name="age" value="33" />
-          </div>
-          <div class="worker">
-            <span class="input__text">Наличие детей: </span>
-            <input class="input__value" type="checkbox" name="children" />
-          </div>
-          <div class="worker">
-            <span class="input__text">Профессия: </span>
-            <select class="input__value" name="skill" required>
-              <option value="Слесарь" selected="Слесарь">Слесарь</option>
-              <option value="Водитель">Водитель</option>
+            <span class="input__text">Организация: </span>
+            <select class="input__value" name="organization" required>
+              <option value="Завод" selected="Завод">Завод</option>
+              <option value="Таксопарк">Таксопарк</option>
             </select>
           </div>
-        </div>
-        <div class="right">
           <div class="worker">
-            <div class="worker">
-              <span class="input__text">Организация: </span>
-              <select class="input__value" name="organization" required>
-                <option value="Завод" selected="Завод">Завод</option>
-                <option value="Таксопарк">Таксопарк</option>
-              </select>
-              <!-- <input class="input__value" type="text" name="organization" value="Таксопарк" /> -->
-            </div>
-            <div class="worker">
-              <span class="input__text">Должность: </span>
-              <input class="input__value" type="text" name="organization" value="Слесарь" />
-            </div>
-            <div class="worker">
-              <span class="input__text">Дата приема на работу: </span>
-              <input class="input__value" type="date" name="organization" value="2023-11-24" />
-            </div>
+            <span class="input__text">Должность: </span>
+            <input class="input__value" type="text" name="position" value="Водитель" />
+          </div>
+          <div class="worker">
+            <span class="input__text">Дата приема на работу: </span>
+            <input class="input__value" type="date" name="date" required />
           </div>
         </div>
       </div>
-      <button id="btn" type="submit">Добавить</button>
-    </form>
-    <hr />
-    <table class="table">
-      <thead>
-        <tr>
-          <td>Работник</td>
-          <td>Возраст</td>
-          <td>Дети</td>
-          <td>Профессия</td>
-          <td>Организация</td>
-          <td>Должность</td>
-          <td>Дата</td>
-          <td>&nbsp;&nbsp;&nbsp;</td>
-        </tr>
-      </thead>
-      <tbody id="table-list">
-        <tr class="table__item">
-          <td><br /></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </body>
+    </div>
+    <button id="btn" type="submit">Добавить</button>
+  </form>
+  <hr />
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Работник</td>
+        <td>Возраст</td>
+        <td>Дети</td>
+        <td>Профессия</td>
+        <td>Организация</td>
+        <td>Должность</td>
+        <td>Дата</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+      </tr>
+    </thead>
+    <tbody id="table-list">
+      <!-- <tr class="table__item">
+        <td><br /></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <img class="table__del" src="/img/trash.png" />
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+</body>
+
 </html>
