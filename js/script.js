@@ -63,7 +63,7 @@ const render = function (workers) {
     td.querySelector(".table__del").addEventListener("click", (event) => {
       workers.splice(index, 1);
       render(workers);
-    })
+    });
     tr.classList.add("table__item");
     tr.append(td);
     tableList.append(tr);
