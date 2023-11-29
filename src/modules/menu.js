@@ -3,6 +3,7 @@ const menu = () => {
   const menu = document.querySelector("menu");
   const closeBtn = menu.querySelector(".close-btn");
   const menuItems = menu.querySelectorAll("ul>li>a");
+  const nextBtn = document.querySelector("a[href='#service-block']");
 
   const handleMenu = () => menu.classList.toggle("active-menu");
 
@@ -20,5 +21,13 @@ const menu = () => {
       });
     })
   );
+  nextBtn.addEventListener("click", (event) => {
+    const id = nextBtn.getAttribute("href");
+    event.preventDefault();
+    document.querySelector(id).scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
 };
 export default menu;
