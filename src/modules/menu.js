@@ -17,7 +17,6 @@ const menu = () => {
       handleMenu();
       document.querySelector(id).scrollIntoView({
         behavior: "smooth",
-        block: "start",
       });
     })
   );
@@ -26,7 +25,6 @@ const menu = () => {
     event.preventDefault();
     document.querySelector(id).scrollIntoView({
       behavior: "smooth",
-      block: "start",
     });
   });
 };
