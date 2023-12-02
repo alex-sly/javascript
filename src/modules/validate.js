@@ -17,6 +17,7 @@ const validate = () => {
     textInput.addEventListener("input", (e) => {
       e.target.value = e.target.value.replace(/[^а-яА-Я\-\s]+/g, "");
     });
+    emailInput.type = "text";
     emailInput.addEventListener("input", (e) => {
       e.target.value = e.target.value.replace(/[^\w@\-\.\!\~\*\']+/g, "");
     });
