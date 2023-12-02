@@ -6,7 +6,7 @@ const validate = () => {
   // Калькулятор
   calcItems.forEach((item) => {
     item.addEventListener("input", (e) => {
-      e.target.value = e.target.value.replace(/\D+/, "");
+      e.target.value = e.target.value.replace(/\D+/g, "");
     });
   });
   // Формы
@@ -15,18 +15,18 @@ const validate = () => {
     const emailInput = form.querySelector("input[type='email']");
     const telInput = form.querySelector("input[type='tel']");
     textInput.addEventListener("input", (e) => {
-      e.target.value = e.target.value.replace(/[^а-яА-Я\-\s]+/, "");
+      e.target.value = e.target.value.replace(/[^а-яА-Я\-\s]+/g, "");
     });
     emailInput.addEventListener("input", (e) => {
-      e.target.value = e.target.value.replace(/[^\w@\-\.\!\~\*\']+/, "");
+      e.target.value = e.target.value.replace(/[^\w@\-\.\!\~\*\']+/g, "");
     });
     telInput.addEventListener("input", (e) => {
-      e.target.value = e.target.value.replace(/[^\d\(\)\-]+/, "");
+      e.target.value = e.target.value.replace(/[^\d\(\)\-]+/g, "");
     });
   });
   // Ваше сообщение
   mess.addEventListener("input", (e) => {
-    e.target.value = e.target.value.replace(/[^а-яА-Я\-\s]+/, "");
+    e.target.value = e.target.value.replace(/[^а-яА-Я\-\s]+/g, "");
   });
 };
 export default validate;
