@@ -11,17 +11,11 @@ const sendData = ({ url, data = {} }) => {
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
-  }).then((responce) => {
-    if (responce.ok) {
-      return responce.json();
-    } else {
-      console.log("Код ошибки от сервера: ", responce.status);
-    }
-  });
+  }).then((responce) => responce.json());
 };
 
 getData("db.json")
-  .then((userData) =>
+  .then((userData) => {
     sendData({
       url: "https://jsonplaceholder.typicode.com/posts",
       data: userData,
@@ -31,8 +25,8 @@ getData("db.json")
       })
       .catch((error) => {
         console.log("Ошибка отправки данных: ", error);
-      })
-  )
+      });
+  })
   .catch((error) => {
     console.log("Ошибка получения данных: ", error);
   });
