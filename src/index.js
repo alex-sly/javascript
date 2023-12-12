@@ -10,8 +10,8 @@ const filmList = document.querySelector(".films");
 const selectGender = document.getElementById("gender");
 const catalogButton = document.querySelector(".catalog-button");
 const inputActors = document.querySelector(".search-wrapper_input");
-const checkedFilm = document.querySelector(".checked-film")
-const catalogCheck = document.querySelector(".catalog-check")
+const checkedFilm = document.querySelector(".checked-film");
+const catalogCheck = document.querySelector(".catalog-check");
 let catalogList = document.querySelector(".catalog-list");
 
 const createNewCard = (card, index) => {

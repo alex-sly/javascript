@@ -213,6 +213,18 @@ nav .catalog-button button {
   cursor: pointer;
 }
 
+@media (max-width: 1280px) {
+  nav .catalog-button {
+    flex-basis: 210px;
+  }
+  nav .catalog-button button {
+    width: 180px;
+  }
+  .catalog-check {
+    width: 180px;
+  }
+}
+
 @media (max-width: 1199px) {
   nav .catalog-button {
     flex-basis: 300px;
@@ -222,6 +234,30 @@ nav .catalog-button button {
   }
   .catalog-check {
     width: 266px;
+  }
+}
+
+@media (max-width: 1164px) {
+  nav .catalog-button {
+    flex-basis: 290px;
+  }
+  nav .catalog-button button {
+    width: 257px;
+  }
+  .catalog-check {
+    width: 257px;
+  }
+}
+
+@media (max-width: 1138px) {
+  nav .catalog-button {
+    flex-basis: 280px;
+  }
+  nav .catalog-button button {
+    width: 250px;
+  }
+  .catalog-check {
+    width: 250px;
   }
 }
 
@@ -239,7 +275,7 @@ nav .catalog-button button {
 
 @media (max-width: 992px) {
   nav .catalog-button {
-    flex-basis: 230px;
+    flex-basis: 240px;
   }
   nav .catalog-button button {
     width: 214px;
