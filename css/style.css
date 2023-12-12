@@ -129,7 +129,7 @@ nav .catalog {
   z-index: 120;
   background: #ffffff;
   border: 2px solid #005bff;
-  width: 220px;
+  width: 222px;
   max-height: 90vh;
   overflow-y: scroll;
 }
@@ -156,10 +156,30 @@ nav .catalog ul li:hover {
 }
 
 nav .catalog-button {
-  -ms-flex-preferred-size: 135px;
-  flex-basis: 135px;
+  -ms-flex-preferred-size: 184px;
+  flex-basis: 210px;
   cursor: pointer;
   position: relative;
+}
+
+.catalog-check {
+  display: none;
+  background: #ffffff;
+  border: 2px solid #d0d0d0;
+  width: 184px;
+}
+
+.catalog-check ul {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  text-align: left;
+}
+
+.catalog-check ul li {
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 2px;
 }
 
 @media (max-width: 768px) {
@@ -170,7 +190,7 @@ nav .catalog-button {
 }
 
 nav .catalog-button button {
-  width: 118px;
+  width: 184px;
   height: 40px;
   border-radius: 3px;
   background-color: #005bff;
@@ -193,7 +213,46 @@ nav .catalog-button button {
   cursor: pointer;
 }
 
+@media (max-width: 1199px) {
+  nav .catalog-button {
+    flex-basis: 300px;
+  }
+  nav .catalog-button button {
+    width: 266px;
+  }
+  .catalog-check {
+    width: 266px;
+  }
+}
+
+@media (max-width: 1024px) {
+  nav .catalog-button {
+    flex-basis: 250px;
+  }
+  nav .catalog-button button {
+    width: 222px;
+  }
+  .catalog-check {
+    width: 222px;
+  }
+}
+
+@media (max-width: 992px) {
+  nav .catalog-button {
+    flex-basis: 230px;
+  }
+  nav .catalog-button button {
+    width: 214px;
+  }
+  .catalog-check {
+    width: 214px;
+  }
+}
+
 @media (max-width: 768px) {
+  nav .catalog-button {
+    flex-basis: 70px;
+  }
   nav .catalog-button button {
     width: 50px;
   }
@@ -202,7 +261,7 @@ nav .catalog-button button {
 nav .catalog-button_burger {
   width: 24px;
   height: 24px;
-  margin-right: 12px;
+  margin-right: 10px;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath fill='%23fff' d='M9 5h12a1 1 0 010 2H9a1 1 0 110-2zm0 6h12a1 1 0 010 2H9a1 1 0 010-2zm0 6h6a1 1 0 010 2H9a1 1 0 010-2zM3.5 7.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z'/%3E%3C/svg%3E");
 }
 
@@ -373,7 +432,7 @@ nav .search-btn button::before {
   -ms-flex-direction: column;
   flex-direction: column;
   /* font-weight: 700; */
-  margin-top: 10%;
+  margin-top: 5%;
   border: 2px #d0d0d0 solid;
   padding: 4px;
 }

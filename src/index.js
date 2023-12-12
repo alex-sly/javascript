@@ -10,6 +10,8 @@ const filmList = document.querySelector(".films");
 const selectGender = document.getElementById("gender");
 const catalogButton = document.querySelector(".catalog-button");
 const inputActors = document.querySelector(".search-wrapper_input");
+const checkedFilm = document.querySelector(".checked-film")
+const catalogCheck = document.querySelector(".catalog-check")
 let catalogList = document.querySelector(".catalog-list");
 
 const createNewCard = (card, index) => {
@@ -79,6 +81,9 @@ const filters = (film, gender, actors) => {
     filtered = filtered.filter((item) => {
       return item.movies && item.movies.includes(film, 0);
     });
+    catalogCheck.style.display = "block";
+  } else {
+    catalogCheck.style.display = "";
   }
   if (gender !== "ALL") {
     filtered = filtered.filter((item) => {
@@ -104,6 +109,7 @@ catalogButton.addEventListener("click", (e) => {
 
 catalogList.addEventListener("click", (e) => {
   film = e.target.textContent;
+  checkedFilm.textContent = film;
   filters(film, gender, actors);
 });
 
