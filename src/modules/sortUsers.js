@@ -13,6 +13,9 @@ export const sortUsers = () => {
       })
       .then((users) => {
         render(users);
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
     isSort = !isSort;
   });

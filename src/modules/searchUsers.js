@@ -5,9 +5,14 @@ export const searchUsers = () => {
   const input = document.getElementById("search-input");
 
   const debounceSearch = debounce(() => {
-    userService.getSearchUsers(input.value).then((users) => {
-      render(users);
-    });
+    userService
+      .getSearchUsers(input.value)
+      .then((users) => {
+        render(users);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, 500);
 
   input.addEventListener("input", debounceSearch);

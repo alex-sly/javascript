@@ -6,11 +6,21 @@ export const removeUsers = () => {
     if (e.target.closest(".btn-remove")) {
       const tr = e.target.closest("tr");
       const id = tr.dataset.key;
-      userService.removeUser(id).then(() => {
-        userService.getUsers().then((users) => {
-          render(users);
+      userService
+        .removeUser(id)
+        .then(() => {
+          userService
+            .getUsers()
+            .then((users) => {
+              render(users);
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+        })
+        .catch((error) => {
+          console.log(error.message);
         });
-      });
     }
   });
 };

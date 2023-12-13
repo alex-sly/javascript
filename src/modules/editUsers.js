@@ -11,12 +11,17 @@ export const editUsers = () => {
     if (e.target.closest(".btn-edit")) {
       const tr = e.target.closest("tr");
       const id = tr.dataset.key;
-      userService.getUser(id).then((user) => {
-        nameInput.value = user.name;
-        emailInput.value = user.email;
-        childrenInput.checked = user.children;
-        form.dataset.method = id;
-      });
+      userService
+        .getUser(id)
+        .then((user) => {
+          nameInput.value = user.name;
+          emailInput.value = user.email;
+          childrenInput.checked = user.children;
+          form.dataset.method = id;
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
     }
   });
   form.addEventListener("submit", (e) => {
@@ -29,13 +34,23 @@ export const editUsers = () => {
         children: childrenInput.checked,
         permissions: false,
       };
-      userService.editUser(id, user).then(() => {
-        userService.getUsers().then((users) => {
-          render(users);
-          form.reset();
-          form.removeAttribute("data-method");
+      userService
+        .editUser(id, user)
+        .then(() => {
+          userService
+            .getUsers()
+            .then((users) => {
+              render(users);
+              form.reset();
+              form.removeAttribute("data-method");
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+        })
+        .catch((error) => {
+          console.log(error.message);
         });
-      });
     }
   });
 };

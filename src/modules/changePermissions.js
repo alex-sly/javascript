@@ -8,11 +8,21 @@ export const changePermissions = () => {
       const input = tr.querySelector("input[type=checkbox");
       const id = tr.dataset.key;
 
-      userService.changeUser(id, { permissions: input.checked }).then(() => {
-        userService.getUsers().then((users) => {
-          render(users);
+      userService
+        .changeUser(id, { permissions: input.checked })
+        .then(() => {
+          userService
+            .getUsers()
+            .then((users) => {
+              render(users);
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+        })
+        .catch((error) => {
+          console.log(error.message);
         });
-      });
     }
   });
 };

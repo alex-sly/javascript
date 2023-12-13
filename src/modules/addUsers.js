@@ -15,12 +15,22 @@ export const addUsers = () => {
         children: childrenInput.checked,
         permissions: false,
       };
-      userService.addUser(user).then(() => {
-        userService.getUsers().then((users) => {
-          render(users);
-          form.reset();
+      userService
+        .addUser(user)
+        .then(() => {
+          userService
+            .getUsers()
+            .then((users) => {
+              render(users);
+              form.reset();
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+        })
+        .catch((error) => {
+          console.log(error.message);
         });
-      });
     }
   });
 };
