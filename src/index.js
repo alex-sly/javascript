@@ -1,43 +1,23 @@
-import timer from "./modules/timer";
-import menu from "./modules/menu";
-import modal from "./modules/modal";
-import validate from "./modules/validate";
-import tabs from "./modules/tabs";
-import slider from "./modules/slider";
-import calc from "./modules/calc";
-import sendForm from "./modules/sendForm";
+import { render } from "./modules/render";
+import { addUsers } from "./modules/addUsers";
+import { UserService } from "./modules/userService";
+import { removeUsers } from "./modules/removeUsers";
+import { changePermissions } from "./modules/changePermissions";
+import { editUsers } from "./modules/editUsers";
+import { filterUsers } from "./modules/filterUsers";
+import { sortUsers } from "./modules/sortUsers";
+import { searchUsers } from "./modules/searchUsers";
 
-timer("26 december 2023");
-menu();
-modal();
-validate();
-tabs();
-slider();
-calc(100);
-sendForm({
-  formId: "form1",
-  someElem: [
-    {
-      type: "block",
-      id: "total",
-    },
-  ],
+window.userService = new UserService();
+
+userService.getUsers().then((data) => {
+  render(data);
 });
-sendForm({
-  formId: "form2",
-  someElem: [
-    {
-      type: "block",
-      id: "total",
-    },
-  ],
-});
-sendForm({
-  formId: "form3",
-  someElem: [
-    {
-      type: "block",
-      id: "total",
-    },
-  ],
-});
+
+addUsers();
+removeUsers();
+changePermissions();
+editUsers();
+filterUsers();
+sortUsers();
+searchUsers();
