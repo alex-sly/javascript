@@ -36,7 +36,7 @@ export class UserService {
   }
 
   addUser(user) {
-    sendData("http://localhost:4545/users", "POST", user);
+    return sendData("http://localhost:4545/users", "POST", user);
     // return fetch("http://localhost:4545/users", {
     //   method: "POST",
     //   body: JSON.stringify(user),
@@ -47,14 +47,14 @@ export class UserService {
   }
 
   removeUser(id) {
-    sendData("http://localhost:4545/users", "DELETE", "", id);
+    return sendData("http://localhost:4545/users", "DELETE", "", id);
     // return fetch(`http://localhost:4545/users/${id}`, {
     //   method: "DELETE",
     // }).then((res) => res.json());
   }
 
   changeUser(id, data) {
-    sendData("http://localhost:4545/users", "PATCH", data, id);
+    return sendData("http://localhost:4545/users", "PATCH", data, id);
     // return fetch(`http://localhost:4545/users/${id}`, {
     //   method: "PATCH",
     //   body: JSON.stringify(data),
@@ -70,7 +70,7 @@ export class UserService {
   }
 
   editUser(id, user) {
-    sendData("http://localhost:4545/users", "PUT", user, id);
+    return sendData("http://localhost:4545/users", "PUT", user, id);
     // return fetch(`http://localhost:4545/users/${id}`, {
     //   method: "PUT",
     //   body: JSON.stringify(user),

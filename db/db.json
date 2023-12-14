@@ -13,13 +13,6 @@
       "email": "thornton@gmail.com",
       "children": false,
       "permissions": true
-    },
-    {
-      "name": "Alex",
-      "email": "alex@mail.ru",
-      "children": true,
-      "permissions": false,
-      "id": 2
     }
   ]
 }
