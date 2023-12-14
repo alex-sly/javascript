@@ -10,6 +10,8 @@ export const debounce = (func, ms = 300) => {
 };
 
 export const getData = (url, id = "", option = "") => {
+  const viewError = document.getElementById("error");
+  viewError.textContent = "";
   let str = url;
   if (id) {
     str = url + "/" + id;
@@ -19,11 +21,14 @@ export const getData = (url, id = "", option = "") => {
   try {
     return fetch(str).then((res) => res.json());
   } catch (error) {
+    viewError.textContent = "Произошла ошибка, данных нет!";
     throw new Error("Произошла ошибка, данных нет!");
   }
 };
 
 export const sendData = (url, method = "", data = "", id = "") => {
+  const viewError = document.getElementById("error");
+  viewError.textContent = "";
   let str = url;
   let options = {};
   if (id) {
@@ -45,6 +50,7 @@ export const sendData = (url, method = "", data = "", id = "") => {
   try {
     return fetch(str, options).then((res) => res.json());
   } catch (error) {
+    viewError.textContent = "Произошла ошибка, данных нет!";
     throw new Error("Произошла ошибка, данных нет!");
   }
 };
