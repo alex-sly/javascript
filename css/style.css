@@ -1002,12 +1002,13 @@ hr.white {
 .top-slider {
   overflow: hidden;
   height: 450px;
+  padding: 0;
 }
 
 .top-slider .item {
   overflow: hidden;
   height: 450px;
-  position: relative;
+  position: absolute;
 }
 
 .top-slider .item:before {

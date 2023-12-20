@@ -1,3 +1,5 @@
+import { animate } from "./helpers";
+
 const slider = () => {
   const sliderBlock = document.getElementById("slider");
   const slides = sliderBlock.querySelectorAll(".item");
@@ -8,13 +10,25 @@ const slider = () => {
   let interval;
 
   const prevSlide = (slides, index) => {
-    slides[index].style.display = "none";
+    slides[index].style.zIndex = "1";
+    if (screen.width >= 768) {
+      animate({
+        duration: 500,
+        timing(timeFraction) {
+          return timeFraction;
+        },
+        draw(progress) {
+          slides[index].style.left = Math.floor(-(progress * 100)) + "%";
+        },
+      });
+    }
     tables[index].classList.remove("active");
     dots[index].classList.remove("slick-active");
   };
 
   const nextSlide = (slides, index) => {
-    slides[index].style.display = "";
+    slides[index].style.left = "";
+    slides[index].style.zIndex = "";
     tables[index].classList.add("active");
     dots[index].classList.add("slick-active");
   };
@@ -28,7 +42,7 @@ const slider = () => {
     nextSlide(slides, currentSlide);
   };
 
-  const startSlide = (timer = 2000) => {
+  const startSlide = (timer = 3000) => {
     interval = setInterval(autoSlide, timer);
   };
 
