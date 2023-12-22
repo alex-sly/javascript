@@ -17,7 +17,7 @@ const btnUp = () => {
   });
 
   btnUp.addEventListener("click", () => {
-    document.getElementById("slider").scrollIntoView({
+    document.documentElement.scrollIntoView({
       behavior: "smooth",
     });
   });
