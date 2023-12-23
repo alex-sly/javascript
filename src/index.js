@@ -6,6 +6,7 @@ import carusel from "./modules/carusel";
 import accordeon from "./modules/accordeon";
 import validate from "./modules/validate";
 import sendForm from "./modules/sendForm";
+import mobile from "./modules/mobile";
 
 modal();
 scrolls();
@@ -15,3 +16,4 @@ carusel();
 accordeon();
 validate();
 sendForm("form-callback");
+mobile();

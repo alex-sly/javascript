@@ -479,6 +479,7 @@ a.absolute {
 }
 
 .mob-menu-btn {
+  cursor: pointer;
   margin: 24px 5px 0 20px;
 }
 
@@ -495,11 +496,9 @@ a.absolute {
   top: 0;
   right: -400px;
   background: #21282e;
-  height: 100%;
-  width: 370px;
+  width: 320px;
   max-width: 100%;
   z-index: 1000;
-  overflow-y: scroll;
   padding-top: 20px;
   -webkit-transition: all 200ms ease-out;
   -moz-transition: all 200ms ease-out;
@@ -547,6 +546,19 @@ a.absolute {
 .mobile-menu-close.close {
   top: 25px;
   right: 25px;
+  cursor: pointer;
+}
+
+.mobile-menu-close:hover {
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+  -webkit-transition: all 200ms ease-out;
+  -moz-transition: all 200ms ease-out;
+  -o-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
 }
 
 .callback-btn {
